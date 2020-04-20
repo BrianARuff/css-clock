@@ -1,0 +1,105 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  position: relative;
+}
+
+#clock {
+  height: 500px;
+  width: 600px;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background: url("./clock.jpg");
+  background-size: cover;
+}
+
+#clock::before {
+  content: " ";
+  height: 6px;
+  width: 20%;
+  transform: translate(50%, 50%);
+  top: calc(50% - 3px);
+  left: 55%;
+  border: 1px solid red;
+  background: red;
+  position: absolute;
+  border-radius: 3px;
+  transform-origin: left;
+  animation: seconds 60s linear infinite;
+}
+
+@keyframes seconds {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+#clock:after {
+  content: " ";
+  height: 6px;
+  top: calc(50% - 3px);
+  left: 55%;
+  transform: translate(50%, 50%);
+  border: 1px solid blue;
+  border-radius: 3px;
+  width: 15%;
+  position: absolute;
+  animation: hours 86400s linear infinite;
+  transform-origin: left;
+  background: blue;
+}
+
+@keyframes hours {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+#center {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+  background: green;
+  border: 1px solid transparent;
+  z-index: 1002;
+}
+
+span:after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: left;
+  width: 300%;
+  border: 3px solid purple;
+  background: purple;
+  animation: minutes 3600s infinite linear;
+}
+
+@keyframes minutes {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
